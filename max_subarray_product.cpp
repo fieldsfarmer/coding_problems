@@ -6,6 +6,9 @@ using namespace std;
 // not very good
 #define GETSIZE(array) (sizeof((array))/sizeof((array[0])))
 
+template <typename T, unsigned S>
+inline unsigned getsize(const T (&v)[S]){return S;}
+
 // result ensure to be at least 1;
 int maxSubarrayProduct(int a[], int n){
 	int max_here = 1;
@@ -54,8 +57,10 @@ int main(){
 	int a2[] = {-1, -3, -10, 0, 60};
 	int a3[] = {-2, -3, 0, -2, -40};
 	cout << "test 1" << endl;
- 	cout << maxSubarrayProduct(a1, GETSIZE(a1)) << endl;
- 	cout << maxSubarrayProduct_1(a1, GETSIZE(a1)) << endl;
+ 	// cout << maxSubarrayProduct(a1, GETSIZE(a1)) << endl;
+ 	cout << maxSubarrayProduct(a1, getsize(a1)) << endl;
+ 	// cout << maxSubarrayProduct_1(a1, GETSIZE(a1)) << endl;
+ 	cout << maxSubarrayProduct_1(a1, getsize(a1)) << endl;
 
 	cout << "test 2" << endl;
 	cout << maxSubarrayProduct(a2, GETSIZE(a2)) << endl;
