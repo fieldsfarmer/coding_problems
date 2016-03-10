@@ -1,4 +1,5 @@
-// Big integer with add
+// Big integer with add and substract
+// refer: https://github.com/panks/BigInteger
 
 #include <string>
 #include <vector>
