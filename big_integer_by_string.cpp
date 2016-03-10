@@ -11,7 +11,11 @@ class BigInteger{
 private:
 	string num;
 	bool neg;
+	string trim(string s);
 	string positive_add(string a, string b);
+	string positive_substract(string a, string b);
+	// a>b: 1; a==b: 0; a<b: -1
+	int positive_compare(string a, string b);
 public:
 	BigInteger(){
 		num = "0";
@@ -20,9 +24,32 @@ public:
 	BigInteger(string s);
 	void print();
 	BigInteger add(BigInteger b);
+	BigInteger substract(BigInteger b);
 };
 
-string trim(string s){
+int BigInteger::positive_compare(string a, string b){
+	a = trim(a);
+	b = trim(b);
+	if(a==b) return 0;
+	int asz = a.size(), bsz = b.size();
+	if(asz == bsz){
+		for(int i=0; i<asz; ++i){
+			if(a[i] < b[i])
+				return -1;
+			else if(a[i] > b[i])
+				return 1;
+		}
+		return 0;
+	}
+	else if(asz < bsz){
+		return -1;
+	}
+	else{
+		return 1;
+	}
+}
+
+string BigInteger::trim(string s){
 	if(s.size()<=1) return s;
 	int position = 0;
 	for(int i=0; i<s.size(); ++i){
@@ -70,6 +97,28 @@ string BigInteger::positive_add(string a, string b){
 	return add;
 }
 
+string BigInteger::positive_substract(string a, string b){
+	a = trim(a);
+	b = trim(b);
+	string s = a;
+	if(positive_compare(a, b) == 0) 
+		return "0";
+	else if(positive_compare(a, b) > 0){
+		int asz = a.size(), bsz = b.size();
+		int diff = (int)(asz - bsz);
+		b.insert(0, diff, '0');
+		for(int i=asz-1; i>=0; --i){
+			if(a[i] < b[i]){
+				a[i]+=10;
+				a[i-1]-=1;
+			}
+			s[i] = (a[i]-'0')-(b[i]-'0')+'0';
+		}
+		s = trim(s);
+	}
+	return s;
+}
+
 BigInteger::BigInteger(string s){
 	if(isdigit(s[0])){
 		num = s;
@@ -96,10 +145,16 @@ BigInteger BigInteger::add(BigInteger b){
 	return BigInteger(positive_add(this->num, b.num));
 }
 
+BigInteger BigInteger::substract(BigInteger b){
+	return BigInteger(positive_substract(this->num, b.num));
+}
+
 int main(){
-	BigInteger s("000123000");
-	BigInteger t("0321");
+	BigInteger s("000123");
+	BigInteger t("03210");
 	BigInteger res = s.add(t);
 	res.print();
+	BigInteger res1 = t.substract(s);
+	res1.print();
 	return 0;
 }
