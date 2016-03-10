@@ -1,11 +1,14 @@
 #include <vector>
 #include <iostream>
-#include <climits>
+// #include <climits>
+#include <vector>
+
 using namespace std;
 
 // not very good
 #define GETSIZE(array) (sizeof((array))/sizeof((array[0])))
 
+// better see: http://www.cplusplus.com/forum/general/33669/
 template <typename T, unsigned S>
 inline unsigned getsize(const T (&v)[S]){return S;}
 
@@ -70,6 +73,10 @@ int main(){
 	cout << maxSubarrayProduct(a3, GETSIZE(a3)) << endl;
 	cout << maxSubarrayProduct_1(a3, GETSIZE(a3)) << endl;
 
+	// test for getsize
+	// vector<int> v(5, 0);
+	// cout << "test for getsize" << endl;
+	// cout << getsize(v) << endl;
 	return 0;
 
 }
