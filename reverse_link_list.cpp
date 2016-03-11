@@ -8,6 +8,7 @@ struct Node{
 	Node(int x): val(x), next(NULL){}
 };
 
+// does not work cause pass by value!!!
 // void reverseLinkList(Node* head){
 // 	if(!head || !(head->next)) return;
 // 	Node tmp = Node(0);
@@ -51,9 +52,10 @@ int main(){
 	Node a = Node(1);
 	Node b = Node(2);
 	Node c = Node(3);
+	Node d = Node(4);
 	a.next = &b;
 	b.next = &c;
-	
+	c.next = &d;
 	Node* p = reverseLinkList_1(&a);
 	print(p);
 	return 0;

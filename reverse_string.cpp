@@ -21,13 +21,13 @@ void reverseString(string& s){
 }
 
 int main(){
-	string s = "hello   world  ";
-	
+	string s = " hello   world  ";
+	// string s = "12";
 	cout << s << endl;
 
 	reverseString(s);
 	
 	cout << s << endl;
-	
+
 	return 0;
 }
