@@ -118,28 +118,28 @@ for(let j = 0; j<test3.length; ++j){
 }
 // var end1 = new Date().getMilliseconds();
 var end1 = +new Date();
-console.log('isPrime_simpleVersion time taken: ' + (end1-start1)); // about 45
+console.log('isPrime_simpleVersion time taken: ' + (end1-start1)); // about 56
 
 var start = +new Date();
 for(let j = 0; j<test3.length; ++j){
 	memorizedIsPrime(test3[j])
 }
 var end = +new Date();
-console.log('memorizedIsPrime time taken: ' + (end-start)); // about 13
+console.log('memorizedIsPrime time taken: ' + (end-start)); // about 17
 
 var start2 = +new Date();
 for(let j = 0; j<test3.length; ++j){
 	memorizedIsPrime2(test3[j])
 }
 var end2 = +new Date();
-console.log('memorizedIsPrime2 time taken: ' + (end2-start2)); 
+console.log('memorizedIsPrime2 time taken: ' + (end2-start2)); // about 19
 
 var start3 = +new Date();
 for(let j = 0; j<test3.length; ++j){
 	isPrime_simpleVersion.memorized(test3[j])
 }
 var end3 = +new Date();
-console.log('memorized  of Function.prototype time taken: ' + (end3-start3)); 
+console.log('memorized  of Function.prototype time taken: ' + (end3-start3)); // about 23
 
 var start4 = +new Date();
 var isPrimeTest = isPrime_simpleVersion.memorized1();
@@ -147,11 +147,11 @@ for(let j = 0; j<test3.length; ++j){
 	isPrimeTest(test3[j])
 }
 var end4 = +new Date();
-console.log('memorized1 of Function.prototype time taken: ' + (end4-start4)); 
+console.log('memorized1 of Function.prototype time taken: ' + (end4-start4)); // about 23
 
 var start5 = +new Date();
 for(let j = 0; j<test3.length; ++j){
 	isPrimeScoped(test3[j])
 }
 var end5 = +new Date();
-console.log('isPrimeScoped time taken: ' + (end5-start5)); 
+console.log('isPrimeScoped time taken: ' + (end5-start5));     // about 17
