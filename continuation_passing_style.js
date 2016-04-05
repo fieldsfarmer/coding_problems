@@ -30,8 +30,22 @@ function factorial1(n, ret){
 		});
 }
 
+function tailRecursionFac(n, a){
+	if(n==0) return a;
+	return tailRecursionFac(n-1, n*a);
+}
+
+function tailRecursionFac1(n, a, ret){
+	if(n==0) ret(a);
+	else
+		tailRecursionFac1(n-1, a*n, ret);
+}
+
 console.log(factorial(10));
 factorial1(10, function(n){console.log(n)});
+console.log(tailRecursionFac(10, 1));
+tailRecursionFac1(10, 1, function(n){console.log(n)});
+
 
 var awhile = 100;
 
