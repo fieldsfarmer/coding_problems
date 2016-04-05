@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function isPrime_simpleVersion (value) {
 	if(value<=1) return false;
