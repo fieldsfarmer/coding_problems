@@ -12,8 +12,10 @@ class Solution:
     # @param A: Given n items with size A[i]
     # @return: The maximum size
     def backPack(self, m, A):
+
         # l = len(A)
         # f = [[False]*(m+1) for _ in range(l+1)]
+        ### f[i][j] is true if can find items in A[:i] such that the total size if j
         # f[0][0] = True
         # for i in range(l):
         #     for j in range(m+1):
