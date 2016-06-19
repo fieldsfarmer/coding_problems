@@ -66,12 +66,13 @@ def eratosthenes():
 		q += 1
 
 n = 0
+a = []
 for i in eratosthenes():
-	print i
+	a.append(i)
 	n += 1
 	if n == 100:
 		break
-
+print a
 
 
 		
