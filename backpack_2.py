@@ -10,14 +10,24 @@ class Solution:
     # @param A & V: Given n items with size A[i] and value V[i]
     # @return: The maximum value
     def backPackII(self, m, A, V):
-        l = len(A)
-        dp = [[0]*(m+1) for _ in range(l+1)]
-        ### dp[i][j] is the maxvalue for items in A[:i] and maximum size of j
-        for i in range(l):
-            for j in range(m+1):
-                if i==0 or j==0: dp[i][j] = 0
-                if A[i]>j:
-                    dp[i+1][j] = dp[i][j]
-                else:
-                    dp[i+1][j] = max(dp[i][j], dp[i][j-A[i]]+V[i])
-        return dp[l][m]
+        # l = len(A)
+        # dp = [[0]*(m+1) for _ in range(l+1)]
+        # ### dp[i][j] is the maxvalue for items in A[:i] and maximum size of j
+        # for i in range(l):
+        #     for j in range(m+1):
+        #         if i==0 or j==0: dp[i][j] = 0
+        #         if A[i]>j:
+        #             dp[i+1][j] = dp[i][j]
+        #         else:
+        #             dp[i+1][j] = max(dp[i][j], dp[i][j-A[i]]+V[i])
+        # return dp[l][m]
+
+
+        #### optimized for space
+        #### the function is dp[i+1][j] = max(dp[i][j], dp[i][j-A[i]]+V[i])
+        #### see http://love-oriented.com/pack/P01.html
+        dp = [0]*(m+1)
+        for i in range(len(A)):
+            for j in range(m,-1,-1):
+                dp[j] = max(dp[j], dp[j-A[i]]+V[i])
+        return dp[m]
