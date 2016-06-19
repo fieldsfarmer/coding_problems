@@ -8,5 +8,7 @@ Collections of interesting problems.
 - [coins in a line 3](./coins_in_a_line_3.py)
 
 ###### Backpack
-- [backpack 1](./backpack_1.py) items used for once and maxsize, to check if fullfilled
-- [backpack 2](./backpack_2.py) items with values used for once, max size, to maximize total value
+- [backpack 1](./backpack_1.py) items with size, used for once; to check if fullfilled the maxsize
+- [backpack 2](./backpack_2.py) items with size and value, used for once; to maximize total value within maxsize
+- [backpack 3](./backpack_3.py) items with size and values used for many times, to maximize total value within maxsize
+- [k sum](./)
