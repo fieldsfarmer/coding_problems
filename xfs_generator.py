@@ -21,6 +21,9 @@ def xfs(rt, tag):
 		for v in u.children:
 			arr.append(v)
 
+def dfs(rt):
+	return xfs(rt, -1)
+
 def main():
 	root = Node(0)
 	a, b, c = Node(1), Node(2), Node(3)
@@ -31,7 +34,9 @@ def main():
 	b.children = [e,f,g]
 	# for i in bfs(root):
 	# 	print(i.val)
-	for i in xfs(root, -1):
+	# for i in xfs(root, -1):
+	# 	print(i.val)
+	for i in dfs(root):
 		print(i.val)
 
 if __name__=='__main__':
