@@ -36,7 +36,11 @@ def main():
 	# 	print(i.val)
 	# for i in xfs(root, -1):
 	# 	print(i.val)
-	for i in dfs(root):
+	# for i in dfs(root):
+	# 	print(i.val)
+
+	rt = None
+	for i in dfs(rt):
 		print(i.val)
 
 if __name__=='__main__':

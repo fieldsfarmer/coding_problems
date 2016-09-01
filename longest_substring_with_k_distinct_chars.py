@@ -100,7 +100,7 @@ def main():
 	s = 'ecebabbdadada'
 	k = 2
 	# print(longest_substring_with_k_distinct_chars(s, 2))
-	s = 'aababaccaabbbbbbbbbb'
+	s = 'aababaccaabbcbbbbcbbbc'
 	print data_stream1(s, 2)
 
 if __name__ == '__main__':

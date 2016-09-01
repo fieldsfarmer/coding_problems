@@ -22,3 +22,5 @@ def get_text1(name):
 	return "hello, {0}".format(name)
 
 print  get_text1("Li Yang")
+
+
