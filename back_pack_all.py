@@ -97,6 +97,28 @@ def back_pack_6_1(m,A):
 				dp[j]+=dp[j-A[i]]
 	return dp[m]
 
+#########################################################
+# Given an array nums with all positive numbers and no duplicates, 
+# find the number of possible combinations that add up to a positive integer target.
+# Given A = [1, 2, 4], m = 4
+# # The possible combination ways are:
+# [1, 1, 1, 1]
+# [1, 1, 2]
+# [1, 2, 1]
+# [2, 1, 1]
+# [2, 2]
+# [4]
+
+def back_pack_7(m, A):
+	dp=[0]*(m+1)
+	dp[0]=1
+	for i in range(m+1):
+		for j in range(len(A)):
+			if i>=A[j]:
+				dp[i]+=dp[i-A[j]]
+	return dp[m]
+
+
 
 
 def main():
@@ -120,6 +142,10 @@ def main():
 	m = 7
 	print back_pack_6(m,A)
 	print back_pack_6_1(m,A)
+
+	A = [1, 2, 4]
+	m = 4
+	print back_pack_7(m, A)
 
 	
 if __name__ == '__main__':

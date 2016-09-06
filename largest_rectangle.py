@@ -33,9 +33,6 @@ def wrong_maximalRectangle(m):
                 cc,d = dp[i-1][j]
                 e,f = dp[i][j-1]
 
-                
-
-
                 if a==0 and e==0:
                     u,v=1,1+d
                 elif b==0 and d==0:
@@ -44,9 +41,6 @@ def wrong_maximalRectangle(m):
                     u = 1+min(a,e)
                     v = 1+min(b,d)
 
-                # v=1+min(b,d)
-                # u=1+min(a,cc)
-                # v=1+min(b,f)
                 dp[i][j] = (u,v)
                 res = max(res, u*v)
     print dp
