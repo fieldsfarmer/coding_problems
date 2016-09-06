@@ -19,9 +19,9 @@ def main():
 	k = 3
 	n = 10
 	t = random_array_generator(arr, k)
-	# for i in range(n):
-	# 	# print(t.next())
-	# 	print(next(t))
+	for i in range(n):
+		# print(t.next())
+		print(next(t))
 	u = g([])
 	for i in range(10):
 		try:
