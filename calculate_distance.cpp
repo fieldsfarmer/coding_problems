@@ -24,7 +24,7 @@ vector<int> solution(vector<int> &T) {
             capital = i;
     }
     stack<tuple<int,int>> st;
-    //In the following, I made a misktake
+    //In the following, I made a misktake. It fails in the binary tree: t = {4,1,1,1,3,3}
     //st.push(make_tuple(d[capital][0],1));
     //The following is right!
     for(auto i : d[capital])
