@@ -60,7 +60,7 @@ void test() {
     assert(sol.rollback() == true); // rollback transaction 2
     assert(sol.top() == 7);         // stack: [4,7]
 
-    sol.begin();                    // start transaction 3程序员野生保护区
+    sol.begin();                    // start transaction 3
     sol.push(10);                   // stack: [4,7,10]
     assert(sol.commit() == true);   // transaction 3 is committed
     assert(sol.top() == 10);
