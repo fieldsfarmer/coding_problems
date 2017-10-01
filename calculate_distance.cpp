@@ -4,7 +4,6 @@
 // For example, T[0]=9, T[1]=1, T[2]=4, T[3]=9, T[4]=0, T[5]=4, T[6]=8, T[8]=0, T[9]=1
 // Then it will return [1,3,2,3,0,0,0,0,0] because 1 is the captial. 9 is distance 1 from it. [0,3,7] is distance 2 from it. [4,8] is distance 3 from it. [2,5,6] is distance 4 from it.
 // The worst time complexity is required to be O(N). The worst space is also the same.
-// The following code does not fully pass the exam
 
 #include <algorithm>
 #include <stack>
@@ -18,14 +17,18 @@ vector<int> solution(vector<int> &T) {
     vector<int> res(len-1, 0);
     int capital = -1;
     unordered_map<int, vector<int>> d;
-    for(int i=0; i<len; ++i){
+    for(auto i=0; i<len; ++i){
         if(T[i] != i)
             d[T[i]].push_back(i);
         else
             capital = i;
     }
     stack<tuple<int,int>> st;
-    st.push(make_tuple(d[capital][0],1));
+    //In the following, I made a misktake
+    //st.push(make_tuple(d[capital][0],1));
+    //The following is right!
+    for(auto i : d[capital])
+        st.push(make_tuple(i,1));
     while(st.size()>0){
         auto u = st.top();
         st.pop();
