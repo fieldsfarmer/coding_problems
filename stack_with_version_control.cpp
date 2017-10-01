@@ -4,6 +4,7 @@
 // rollback (which close all operations in the session if any un-committed operations and return true; otherwise, return false)
 // commit (which commit the operations if there are un-commited ones; otherwise return false)
 // The following code works in the test1, but still does not pass other tests (which I don't know what they are)
+// Maybe next time I need to read the problem carefully
 
 class Solution {
 public:
