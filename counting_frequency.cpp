@@ -33,15 +33,17 @@ void top_char(string str, int k){
     priority_queue<pair<char, int>, vector<pair<char, int>>, decltype(cmp)> pq(cmp);
     int cnt = 0;
     for(auto itr : mp){
-        if(cnt < k){
-            pq.push(itr);
-            cnt ++;
-        } else {
-            if(itr.second > pq.top().second){
-                pq.pop();
-                pq.push(itr);
-            }
-        }
+//         if(cnt < k){
+//             pq.push(itr);
+//             cnt ++;
+//         } else {
+//             if(itr.second > pq.top().second){
+//                 pq.pop();
+//                 pq.push(itr);
+//             }
+//         }
+        pq.push(itr);
+        if(pq.size() > k) pq.pop();
     }
     print_pq(pq);
 }
