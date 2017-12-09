@@ -38,7 +38,7 @@ bool hasCycle(int p, int i, unordered_map<int, vector<int>>& mp, vector<int>& vi
     return false;
 }
 // using stack
-bool hasCycle(int p, int i, unordered_map<int, vector<int>>& mp, vector<int>& visited){
+bool hasCycle1(int p, int i, unordered_map<int, vector<int>>& mp, vector<int>& visited){
     stack<pair<int,int>> st;
     st.push({p, i});
     while(!st.empty()){
@@ -57,3 +57,18 @@ bool hasCycle(int p, int i, unordered_map<int, vector<int>>& mp, vector<int>& vi
     }
     return false;
 }
+//The easiest way is union find
+bool validTree1(int n, vector<pair<int, int>>& edges) {
+    vector<int> parent(n,0);
+    for(int i=0; i<n; ++i) parent[i] = i;
+    for(auto e : edges){
+        auto x = e.first, y = e.second;
+        while(x != parent[x]) x = parent[x];
+        while(y != parent[y]) y = parent[y];
+        if(x == y) return false;
+        parent[x] = y;
+    }
+    return edges.size() == n-1;  // connected
+}
+
+//find connected components in undirected graph 323. Number of Connected Components in an Undirected Graph of leetcode && 305. Number of Islands II
