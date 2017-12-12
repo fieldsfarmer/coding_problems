@@ -3,8 +3,13 @@
 using namespace std;
 //https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
 int main(){
-  string a = "hello word it's    me I   am 123";
-  // we want to print out hello\nword\nit's\nme\nI\nam\n123\n
+  string a = "hello word it's    me";
+  // we want to print out 
+  //hello
+  //word
+  //it's
+  //me
+  
   int next = 0, last = 0;
   string delimiter = " ";
   while((next = a.find(delimiter, last))!=string::npos){
