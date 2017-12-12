@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+//https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
 int main(){
   string a = "hello word it's    me I   am 123";
   // we want to print out hello\nword\nit's\nme\nI\nam\n123\n
