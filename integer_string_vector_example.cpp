@@ -11,6 +11,10 @@ int main(){
   vector<char> c(b.begin(),b.end()); //{'1', '2', '3'}
   string d(c.begin(), c.end()); // "123"
   int e = stoi(d); // 123
+  string weird = "123abc";
+  e = stoi(weird); //123
+  e = atoi(&weird[0]); //123
+  e = atoi(&weird[1]); //23
   
   vector<int> v1 = {1,2,3,4};
   int f = accumulate(v1.begin(), v1.end(), 0); // 10
