@@ -15,6 +15,10 @@ int main(){
   e = stoi(weird); //123
   e = atoi(&weird[0]); //123
   e = atoi(&weird[1]); //23
+  e = atoi(&weird[3]); //0
+  weird = "abc";
+  e = atoi(&weird[0]); //0
+  e = stoi(weird); //ERROR!!!
   
   vector<int> v1 = {1,2,3,4};
   int f = accumulate(v1.begin(), v1.end(), 0); // 10
