@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 //https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
 int main(){
@@ -11,7 +12,7 @@ int main(){
   //me
   
   int next = 0, last = 0;
-  string delimiter = " ";
+  string delimiter = " "; // it can be any size string
   while((next = a.find(delimiter, last))!=string::npos){
     auto t = a.substr(last, next-last);
     if(t.size() > 0) cout << t << endl;
@@ -19,5 +20,13 @@ int main(){
   }
   auto t = a.substr(last);
   if(t.size() > 0) cout << t << endl;
+  
+  //Method 2, only works on char demiliter
+  string b = "nihao\nshijie\n";
+  string out;
+  isstream ss(b);
+  while(getline(ss, out, '\n')){
+    cout << out << endl;
+  }
   return 0;  
 }
