@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <sstream> // istringstream
 using namespace std;
 //https://stackoverflow.com/questions/14265581/parse-split-a-string-in-c-using-string-delimiter-standard-c
 int main(){
@@ -24,7 +24,7 @@ int main(){
   //Method 2, only works on char demiliter
   string b = "nihao\nshijie\n";
   string out;
-  isstream ss(b);
+  istringstream ss(b);
   while(getline(ss, out, '\n')){
     cout << out << endl;
   }
