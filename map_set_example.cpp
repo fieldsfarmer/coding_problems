@@ -13,4 +13,5 @@ int main() {
 }
 
 // https://leetcode.com/problems/contains-duplicate-iii/description/
+// leetcode K empty slots; auto p = s.insert(f).first;
 
