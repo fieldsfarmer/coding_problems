@@ -9,6 +9,10 @@ int main() {
   s.insert(10); s.insert(20); s.insert(30);
   cout << *(s.lower_bound(10)) << endl; //10
   cout << *(s.upper_bound(10)) << endl; //20
+  cout << *(s.lower_bound(15)) << endl; //20
+  cout << *(s.upper_bound(15)) << endl; //20
+  auto it = s.erase(20);
+  cout << *it << endl; //30
   return 0;
 }
 
