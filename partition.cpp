@@ -33,3 +33,10 @@ int kth_smaller(vector<int>& nums, int k){
   }
   return -1;
 }
+
+void quick_sort(vector<int>& nums, int l, int r){
+  if(l>=r) return;
+  int k = partition(nums, l, r);
+  quick_sort(nums,l,k-1);
+  quick_sort(nums,k+1,r);
+}
